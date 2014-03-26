@@ -1,8 +1,8 @@
-ruleset Location {
+ruleset Foursquare_Location {
   meta {
     name "Foursquare location"
     description <<
-      Interacts with foursquare, displays last location. Lab 8.
+      Interacts with foursquare.
     >>
     author "Mike Curtis"
     logging off
@@ -20,7 +20,9 @@ ruleset Location {
     	lat = event:attr("lat");
     	lng = event:attr("lng");
     }
-    noop();
+    {
+      noop();
+    }
     fired {
     	set ent:lat lat;
     	set ent:lng lng;
@@ -28,6 +30,7 @@ ruleset Location {
   }
   
   rule location_show is active {
+    select when web cloudAppSelected
     pre {
       my_html = <<
         <h5>Lat: #{ent:lat}</h5>
