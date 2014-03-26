@@ -20,8 +20,7 @@ ruleset Location {
     	lat = event:attr("lat");
     	lng = event:attr("lng");
     }
-    {
-    }
+    noop();
     fired {
     	set ent:lat lat;
     	set ent:lng lng;
@@ -40,5 +39,4 @@ ruleset Location {
       CloudRain:createLoadPanel("CS462 Lab 8: Dispatching Events Exercise", {}, my_html);
     }
   } 
-  }
 }
